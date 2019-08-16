@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hi</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1340px" height="500px" style="border: 1px solid #808080;"></canvas>
+<script>
+    function MyRectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.getDienTich = function () {
+            return width * height;
+        };
+        this.getChuVi = function () {
+            return ((width + height) *2);
+        };
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.setWidth = function (width) {
+            this.width = width;
+        };
+        this.setHeight = function (height) {
+            this.height = height;
+        };
+    };
+    function VeRectangle() {
+        let rectangle = new MyRectangle(250, 150);
+        let cv = rectangle.getChuVi();
+        let dt = rectangle.getDienTich();
+        let canvas = document.getElementById("myCanvas").getContext('2d');
+        canvas.rect(200, 100, rectangle.height, rectangle.width);
+        canvas.stroke();
+        document.write("Chu vi: " + cv + " Dien tich: " + dt);
+    }
+    VeRectangle();
+</script>
+</body>
+</html>
